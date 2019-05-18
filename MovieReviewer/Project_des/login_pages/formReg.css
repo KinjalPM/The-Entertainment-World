@@ -1,0 +1,107 @@
+label { float: left;
+      width: 150px;}
+      #container{
+          max-width: 450px;
+          margin: auto;
+          border-radius: 20px;
+          background-color: rgba(0,0,0,0.8);
+          box-sizing:border-box;
+          padding:38px;
+          color:#fff;
+          margin-top:100px;
+      } 
+      
+
+ .error {
+       color: red;
+     margin-left: 5px;
+    }
+    #radioError, #checkBoxError {
+      display: inline;
+    }
+
+      .City
+      {
+        display: none;
+      }    
+
+.em{
+        color: red;
+      }
+
+      .email{
+        color: red;
+      }
+      .phone{
+        color: red;
+      }
+      .zip{
+        color: red;
+      }
+      #first{
+      	    position: relative;
+    top: 0em;
+      }
+
+        #last{
+      	    position: relative;
+    top: 0em;
+      }
+    
+      body{
+        background:url(movie.jpg);
+        background-size:cover;
+        font-family: Arial;
+      }
+      h3,h2{
+        text-align: center;
+      }
+      input[type=text],input[type=password]{
+        width:100%;
+        box-sizing:border-box;
+        padding:12px 5px;
+        background: rgba(0,0,0,0.10);
+        outline:none;
+        /* border-bottom:1px dotted #fff; */
+        color:#fff;
+        margin:5px;
+        border-radius:5px;
+        font-weight:bold;
+      }
+      input.reg{
+        width:100%;
+        box-sizing:border-box;
+        padding:10px 0;
+        margin-top:30px;
+        outline:none;
+        border:none;
+        background:#60adde;
+        opacity:0.6;
+        border-radius:25px;
+        font-size:20px;
+        font-weight: bold;
+        /* text-shadow: 2px 3px red; */
+      }
+      input.log{
+        width:100%;
+        box-sizing:border-box;
+        padding:10px 0;
+        margin-top:30px;
+        outline:none;
+        border:none;
+        background:#69cf8b;
+        opacity:0.6;
+        border-radius:20px;
+        font-size:20px;
+        font-weight: bold;
+        /* text-shadow: 2px 3px red; */
+      }
+      input.log:hover{
+        background: rgb(2, 66, 10);
+        opacity: 1;
+      }
+      input.reg:hover{
+        background:#0064a1;
+        opacity:0.9;
+      }
+      

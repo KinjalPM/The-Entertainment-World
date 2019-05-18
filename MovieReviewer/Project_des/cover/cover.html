@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  position: relative;
+}
+
+.center {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+.button {
+  position: relative;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 150px;
+  font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:after {
+  content: "";
+  background: grey;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+  <img src="1.jpg" alt="Cinque Terre" width="1000" height="300">
+  <div class="center">
+      <p style="font-family:'Monotype Corsiva', 'Apple Chancery', 'ITC Zapf Chancery', 'URW Chancery L', cursive;">
+          <marquee behavior="alternate" scrollamount="10" >The Entertaintment World!</marquee>
+        
+      </p> 
+
+   
+        
+<!-- <a href="../Home_start/home.html" class="button">FILMY</a> -->
+
+<button class= "button" onclick="location.href= '../Home_start/home.html'">FILMY</button>
+
+</div>
+</div>
+
+</body>
+</html>

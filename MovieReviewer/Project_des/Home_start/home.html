@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Movie Reviewer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cube.css">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <style>
+    .twitter-tweet {
+      width: 75% !important;
+    }
+    #animated_div {
+                        width: 400px;
+                        height: 47px;
+                        background: rgb(5, 4, 65);
+                        color: #ffffff;
+                        position: relative;
+                        font-weight: bold;
+                        font-size: 20px;
+                        padding: 10px;
+                        
+  animation: animated_div  30s steps(30) infinite alternate-reverse;
+                        
+                        
+                        border-radius: 5px;
+                        
+                      }
+                      @keyframes animated_div {
+
+  0%   { left: 0px; top: 0px;}
+  25%  {left: 200px; top: 0px;}
+
+  100% { left: 0px; top: 0px;}
+}
+
+
+  </style>
+  <script>
+
+    $(document).ready(function () {
+      //   var alldat;
+      //   $.get("http://localhost:1234/movies/test", function(data, status){
+      //       alldat = data;
+      // });
+      // alert(alldat);
+      // //$("#pos_com").attr("disabled", true);
+      // $("#myBtn").click(function(){
+      //   var bla = $('#mov_search').val();
+      //   for (var bb=0;bb<alldat.length;bb++){
+      //       if (alldat[bb].Name==bla){
+      //         movip = alldat[bb];
+      //           //var d = document.createElement("div");
+      //           var x = document.createElement("iframe");
+      //           var p = document.createElement("p");
+      //           var q = document.createElement("p");
+      //           var r = document.createElement("p");
+      //           var l = document.createElement("p");
+      //           var te = document.createElement("textarea");
+      //           te.setAttribute("id","com_box");
+      //           x.setAttribute("src", alldat[bb].youtubeLink+"'&autoplay=1");
+      //           x.setAttribute("name",alldat[bb].youtubeLink);
+      //           x.setAttribute("width","450");
+      //           x.setAttribute("height","400");
+      //           x.setAttribute("frameborder","0");
+      //           x.setAttribute("id","vidf");
+      //           p.textContent = "Actor:"+alldat[bb].Actor;
+      //           q.textContent = "Rating:"+alldat[bb].Rating;
+      //           r.textContent = "Year Released:"+alldat[bb].Year;
+      //           l.textContent = "Comments:" +alldat[bb].Comments;
+      //           $('#mod_data').append(x);
+      //           $('#mod_data').append(p);
+      //           $('#mod_data').append(q);
+      //           $('#mod_data').append(r);
+      //           $('#mod_data').append(l);
+      //           $('#mod_data').append(te);
+      //           $("#myModal").modal();
+      //           break;
+      //       }
+      //   }
+
+      // });
+
+      // $("#clos_mod").click(function(){
+      //   $('#mod_data').html("")
+      // });
+
+    });
+
+  </script>
+
+  <nav class="navbar navbar-expand-sm bg-transparent navbar-dark fixed-top">
+
+
+    <a class="navbar-brand" href="#">Movie Reviewer</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="../login_pages/Register.html">Join Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../test.html">Movies</a>
+            <a class="dropdown-item" href="../test_tv.html">Tv-Show</a>
+            <a class="dropdown-item" href="Awards/awards.html">Awards</a>
+            <a class="dropdown-item"  href="Awards-tv/AWARDS-TV.html">Tv News</a>
+          </div>
+
+        </li>
+
+
+      </ul>
+    </div>
+    <!--
+    <button type="button" class="btn btn-info btn-lg" id="myBtn">Search</button>
+    -->
+
+    <input type="text" class="form-control" placeholder="Search Movie/ Tv-Show" style="width: 350px;">
+  </nav>
+
+  <div class="modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" id="clos_mod" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="mod_data">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="pos_com" class="btn btn-primary">Post comments</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Welcome to Movie Reviewer</h1>
+      <h2>Information regarding movies...</h2>
+      <a href="#videos" class="btn-get-started ">Get Started</a>
+    </div>
+  </section><!-- #hero -->
+  <section id="videos">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-4">
+              <br>
+              <section class="three-d-container">
+                <input type="radio" checked class="three-d-bullet a" name="three-d">
+                <input type="radio" class="three-d-bullet b" name="three-d">
+                <input type="radio" class="three-d-bullet c" name="three-d">
+                <input type="radio" class="three-d-bullet d" name="three-d">
+                <input type="radio" class="three-d-bullet e" name="three-d">
+                <input type="radio" class="three-d-bullet f" name="three-d">
+                <div class="three-d-cube">
+                  <figure class="three-d-item">
+                      <iframe height="300" src="https://www.youtube.com/embed/uilJZZ_iVwY"></iframe>            
+                     </figure>
+          
+                  <figure class="three-d-item">
+                      <iframe height="300" src="https://www.youtube.com/embed/7TavVZMewpY"></iframe>
+                  </figure>
+                  <figure class="three-d-item">
+                      <iframe height="300" src="https://www.youtube.com/embed/lZHUmQ-dCXM"></iframe>
+                  </figure>
+                  <figure class="three-d-item">
+                  <iframe height="300" src="https://www.youtube.com/embed/uilJZZ_iVwY"></iframe>  
+                  </figure>
+                  <figure class="three-d-item">
+                      <iframe height="300" src="https://www.youtube.com/embed/lZHUmQ-dCXM"></iframe>
+                  </figure>
+                  <figure class="three-d-item">
+                      <iframe height="300" src="https://www.youtube.com/embed/7TavVZMewpY"></iframe>
+                  </figure>
+                </div>
+              </section>
+    
+            </div>
+
+        <div class="col-sm-4">
+          <br>
+          <section class="three-d-container">
+            <input type="radio" checked class="three-d-bullet a" name="three-d">
+            <input type="radio" class="three-d-bullet b" name="three-d">
+            <input type="radio" class="three-d-bullet c" name="three-d">
+            <input type="radio" class="three-d-bullet d" name="three-d">
+            <input type="radio" class="three-d-bullet e" name="three-d">
+            <input type="radio" class="three-d-bullet f" name="three-d">
+            <div class="three-d-cube">
+              <figure class="three-d-item">
+                <iframe height="300" src="https://www.youtube.com/embed/TcMBFSGVi1c"></iframe>
+              </figure>
+              <figure class="three-d-item">
+                <iframe height="300" src="https://www.youtube.com/embed/foyufD52aog"></iframe>
+              </figure>
+              <figure class="three-d-item">
+                <iframe height="300" src="https://www.youtube.com/embed/uilJZZ_iVwY"></iframe>
+              </figure>
+              <figure class="three-d-item">
+                <iframe height="300" src="https://www.youtube.com/embed/TcMBFSGVi1c"></iframe>
+              </figure>
+              <figure class="three-d-item">
+                <iframe height="300" src="https://www.youtube.com/embed/foyufD52aog"></iframe>
+              </figure>
+              <figure class="three-d-item">
+                <iframe height="300" src="https://www.youtube.com/embed/uilJZZ_iVwY"></iframe>
+              </figure>
+            </div>
+          </section>
+
+        </div>
+        <div class="col-sm-4">
+            <br>
+            <section class="three-d-container">
+              <input type="radio" checked class="three-d-bullet a" name="three-d">
+              <input type="radio" class="three-d-bullet b" name="three-d">
+              <input type="radio" class="three-d-bullet c" name="three-d">
+              <input type="radio" class="three-d-bullet d" name="three-d">
+              <input type="radio" class="three-d-bullet e" name="three-d">
+              <input type="radio" class="three-d-bullet f" name="three-d">
+              <div class="three-d-cube">
+                <figure class="three-d-item">
+                    <iframe  height="300" src="https://www.youtube.com/embed/8mP5xOg7ijs"></iframe>
+                </figure>
+                <figure class="three-d-item">
+                    <iframe  height="300" src="https://www.youtube.com/embed/TCb4oZ5CR0c"></iframe>
+                </figure>
+                <figure class="three-d-item">
+                  <iframe height="300" src="https://www.youtube.com/embed/uilJZZ_iVwY"></iframe>
+                </figure>
+                <figure class="three-d-item">
+                    <iframe  height="300" src="https://www.youtube.com/embed/TCb4oZ5CR0c"></iframe>
+                </figure>
+                <figure class="three-d-item">
+                    <iframe  height="300" src="https://www.youtube.com/embed/8mP5xOg7ijs"></iframe>
+                </figure>
+                <figure class="three-d-item">
+                  <iframe height="300" src="https://www.youtube.com/embed/uilJZZ_iVwY"></iframe>
+                </figure>
+              </div>
+            </section>
+  
+          </div>
+
+      </div>
+    </div>
+
+  </section>
+  
+
+          <br>
+          <br>
+          <br>
+
+
+          <section id="about">
+            <div class="container">
+              <h4>ABOUT US</h4>
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+
+                <div class="col-sm-8">
+                  <ul style="list-style-type:none">
+                    <li align="center">Movie Reviewer aims to provide realisitic movie reviews for the users. </li>
+                    <li align="center">Reviews are provided in the form of star rating. </li>
+                    <li align="center">Users can also comment their reviews on respective movies and Tv shows.</li>
+                    <li align="center"> We aim to peovide the best reccomendation to users to enhance their movie
+                      watching experience.</li>
+                    <li align="center"> Films are cultural artifacts created by specific cultures. </li>
+                    <li align="center">They reflect those cultures, and, in turn, affect them. </li>
+                    <li align="center">Film is considered to be an important art form, a source of popular
+                      entertainment, and a powerful medium for educating—or indoctrinating—citizens.</li>
+                    <li align="center"> The visual basis of film gives it a universal power of communication. </li>
+                    <li align="center">Some films have become popular worldwide attractions through the use of dubbing
+                      or subtitles to translate the dialog into other languages.</li>
+                    <li align="center">Some films have become popular worldwide attractions through the use of dubbing
+                      or subtitles to translate the dialog into other languages.</li>
+                    <li align="center">Some films have become popular worldwide attractions through the use of dubbing
+                      or subtitles to translate the dialog into other languages.</li>
+                 
+
+                    <br>
+
+
+
+
+                  </ul>
+                  </p>
+
+                </div>
+                <div class="col-sm-2">
+                </div>
+              </div>
+            </div>
+          </section><!-- #about -->
+          <br>
+          <br>
+          <br>
+          <br>
+          <section id="tweets">
+              <div class="container">
+                
+          
+                  <div class="col-sm-12">
+                     
+          <h4 id="animated_div">See What People Are Talking About</h4>
+          <div class="row">
+            <div class="column">
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">Countdown to Endgame: MCU Took Major Risks With Phase 3<a
+                    href="https://t.co/scmC9UFs2A">https://t.co/scmC9UFs2A</a> <a
+                    href="https://t.co/OIDBch0XMN">pic.twitter.com/OIDBch0XMN</a></p>&mdash; Comic Book Resources (@CBR)
+                <a href="https://twitter.com/CBR/status/1117502940221251584?ref_src=twsrc%5Etfw">April 14, 2019</a>
+              </blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            </div>
+            <div class="column">
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">In 100 days, the king arrives. Watch the brand new trailer for <a
+                    href="https://twitter.com/hashtag/TheLionKing?src=hash&amp;ref_src=twsrc%5Etfw">#TheLionKing</a>
+                  now. <a href="https://t.co/OIjl7GQzyE">pic.twitter.com/OIjl7GQzyE</a></p>&mdash; The Lion King
+                (@disneylionking) <a
+                  href="https://twitter.com/disneylionking/status/1115947544578674689?ref_src=twsrc%5Etfw">April 10,
+                  2019</a>
+              </blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="column">
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">Before: Winter is coming.... <br>Now: <a
+                    href="https://twitter.com/hashtag/GoTPremiereNYC?src=hash&amp;ref_src=twsrc%5Etfw">#GoTPremiereNYC</a>
+                  <a
+                    href="https://twitter.com/hashtag/GamesOfThrones?src=hash&amp;ref_src=twsrc%5Etfw">#GamesOfThrones</a>
+                  <a href="https://twitter.com/hashtag/WinterisNow?src=hash&amp;ref_src=twsrc%5Etfw">#WinterisNow</a> <a
+                    href="https://t.co/B8Y77uqUZp">pic.twitter.com/B8Y77uqUZp</a></p>&mdash; Kara Lynne (@karaalynne_)
+                <a href="https://twitter.com/karaalynne_/status/1117563916760965120?ref_src=twsrc%5Etfw">April 14,
+                  2019</a>
+              </blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <footer class="site-footer">
+
+    <nav class="navbar navbar-expand-sm bg-transparent navbar-dark fixed">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <!-- Links -->
+        <div class="bottom-nav">
+          <ul class="navbar-nav navbar-center">
+            <li class="nav-item">
+              <h6>Join Us</h6>
+              <a class="nav-link" href="https://www.instagram.com/movie___reviewer_/?hl=en"
+                target="_blank">Instagram</a>
+              <a class="nav-link" href="https://www.facebook.com/movie.reviewer.7547" target="_blank">Facebook</a>
+            </li>
+            <li class="nav-item">
+              <h6>Recent Review</h6>
+              <a class="nav-link" href="recentReview.html#top">Top Movies of the month</a>
+              <a class="nav-link" href="recentReview.html#high">Highest Rated Movies</a>
+              <a class="nav-link" href="recentReview.html#trend">Trending</a>
+            </li>
+            <li class="nav-item">
+              <h6>Contact Us</h6>
+              <a class="nav-link" href="enquiry1.html">Job Enquiry</a>
+              <a class="nav-link" href="chatbot.html">Support</a>
+            </li>
+            <li class="nav-item">
+              <h6>Partner Sites</h6>
+              <a class="nav-link" href="https://www.netflix.com/" target="_blank">Netflix</a>
+              <a class="nav-link" href="https://www.amazon.com/gp/video/getstarted" target="_blank">Amazon Prime</a>
+              <a class="nav-link" href="https://www.sonycrackle.com" target="_blank">Sony Crackle</a>
+            </li>
+            <li class="nav-item">
+              <h6>Subscribe </h6>
+              <form class="subscribe-form">
+                <input type="text" placeholder="Email Address"><br>
+
+                <button type="submit" name="subscribe"
+                  onclick="location.href='http://localhost:3456/subscription';">Subscribe</button>
+              </form>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+    <div class="colophon" style="text-align: center">Copyright &copy; 2019 The Entertainment World, Designed by Web Design Group. All rights
+      reserved</div>
+
+  </footer>
+
+
+</body>
+
+</html>

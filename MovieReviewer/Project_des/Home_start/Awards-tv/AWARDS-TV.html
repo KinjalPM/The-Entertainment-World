@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background-color: black;
+  color:#f2f2f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+<body>
+
+        <nav class="navbar navbar-expand-sm bg-transparent navbar-dark " style="position:fixed-top">
+
+
+             
+                <a class="navbar-brand" href="#">Movie Reviewer</a>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            
+                  <!-- Links -->
+                  <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../Home_start/home.html">Home</a></li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../login_pages/Register.html">Join Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="home.html#about">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Browse</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#movie.html">Movies</a>
+                        <a class="dropdown-item" href="#tvshow.html">Tv-Show</a>
+                        <a class="dropdown-item" href="../Awards/awards.html">Awards News</a>
+                        <a class="dropdown-item" href="../Awards-tv/AWARDS-TV.html">TV News</a>
+                      </div>
+            
+                    </li>
+            
+            
+                  </ul>
+                </div>
+                <input type="text" class="form-control" placeholder="Search Movie/ Tv-Show" style="width: 350px;">
+                          </nav>
+
+<h2 style="text-align:center">TV NEWS</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="Images/1.jpg" style="width:100%; height: 60%;">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="Images/2.jpg" style="width:100%; height: 60%;">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="Images/3.jpg" style="width:100%; height: 60%;">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="Images/4.jpg" style="width:100%; height: 60%;">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="Images/10.jpg" style="width:100%; height: 60%;">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="Images/6.jpg" style="width:100%; height: 60%;">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+<br>
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="Images/1.jpg" style="width:80% ; font-size: 25px" onclick="currentSlide(1)" alt="Best Actor">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Images/2.jpg" style="width:80%; font-size: 25px" onclick="currentSlide(2)" alt="Best Director">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Images/3.jpg" style="width:80%; font-size: 25px" onclick="currentSlide(3)" alt="Best Action ">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Images/4.jpg" style="width:80%; font-size: 25px" onclick="currentSlide(4)" alt="Best Fiction">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Images/10.jpg" style="width:80%; font-size: 25px" onclick="currentSlide(5)" alt=" Best Show">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="Images/6.jpg" style="width:80%; font-size: 25px" onclick="currentSlide(6)" alt="Best Family Show">
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+
+
+
+
+<footer class="site-footer" >
+
+           <nav class="navbar navbar-expand-sm bg-transparent navbar-dark "  >
+
+
+
+                   <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                   <!-- Links -->
+                   <div class="bottom-nav">
+                   <ul class="navbar-nav navbar-center">
+                     <li class="nav-item">
+                       <h6>Join Us</h6>
+                       <a class="nav-link" href="https://www.instagram.com/movie___reviewer_/?hl=en" target="_blank">Instagram</a>
+                       <a class="nav-link" href="https://www.facebook.com/movie.reviewer.7547" target="_blank">Facebook</a>
+                     </li>
+                     <li class="nav-item">
+                        <h6>Recent Review</h6>
+                        <a class="nav-link" href="../recentReview.html#top">Top Movies of the month</a>
+                        <a class="nav-link" href="../recentReview.html#high">Highest Rated Movies</a>
+                        <a class="nav-link" href="../recentReview.html#trend">Trending</a>
+                      </li>
+                      <li class="nav-item">
+                            <h6>Contact Us</h6>
+                            <a class="nav-link" href="../enquiry1.html">Job Enquiry</a>
+                            <a class="nav-link" href="../chatbot.html">Support</a>
+                          </li> 
+                             <li class="nav-item">
+                                   <h6>Partner Sites</h6>
+                                   <a class="nav-link" href="https://www.netflix.com/" target="_blank">Netflix</a>
+                                   <a class="nav-link" href="https://www.amazon.com/gp/video/getstarted" target="_blank">Amazon Prime</a>
+                                   <a class="nav-link" href="https://www.sonycrackle.com" target="_blank">Sony Crackle</a>
+                                 </li>
+                         <li class="nav-item">
+                           <h6>Subscribe to Movie Reviewer: </h6>
+                           <!-- <form class="subscribe-form">
+                             <input type="text" placeholder="Email Address"><br>
+
+                             <button type="submit" name="subscribe"
+                               onclick="location.href='http://localhost:3456/subscription';">Subscribe</button>
+                           </form> -->
+                           <input type="button" value="Subscribe" onclick="javascript:location.href='../payment.html'">
+                                   </form>
+                             </li>
+                   </ul>
+
+                       </div>
+         </div>
+         </nav>
+         <div class="colophon" style="text-align: center">Copyright &copy; 2019 The Entertainment World, Designed by Web Design Group. All rights
+             reserved</div>
+
+
+
+
+       </footer>
+
+
+</body>
+</html>

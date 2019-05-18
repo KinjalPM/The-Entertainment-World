@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <!-- <script src="tests.js"></script> -->
+        <!-- <script src="alpha.js"></script> -->
+     <style>
+
+body {
+ background-image: url("/Users/prathmesh/Downloads/MovieWeb/Movie.jpg");
+}
+
+.allvids {
+  display: inline-block;
+  border: 2px;
+  padding: 50px;
+  transition: transform .2s;
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* .allvids iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+
+     
+     </style>
+     </head>
+ <body>
+
+<script>
+  $(document).ready(function() {
+        $.get("http://localhost:1234/movies/test", function(data, status){
+            for (var bb=0;bb<data.length;bb++){
+                if (data[bb].Category=="Action" && data[bb].M_OR_T=="M"){
+                    var d = document.createElement("div");
+                    var x = document.createElement("iframe");
+                    var p = document.createElement("p");
+                   // var x = document.createElement("IMG");
+                    x.setAttribute("src", "/Users/prathmesh/Downloads/Project_pics/"+data[bb].Name+".jpg");
+                    x.setAttribute("name",data[bb].youtubeLink);
+                    x.setAttribute("width","400");
+                    x.setAttribute("height","400");
+                    x.setAttribute("frameborder","0");
+                    p.textContent = "Actor:"+"\n"+data[bb].Actor+ "Rating:"+data[bb].Rating
+                    +"Year Released:\n"+data[bb].Year;
+                    d.setAttribute("class", "allvids");
+                    d.appendChild(x)
+                    x.appendChild(p);
+                    $('#Accont').append(d);
+                   // document.body.appendChild(x);
+                }
+                else if (data[bb].Category=="Sci-Fi" && data[bb].M_OR_T=="M"){
+                    var d = document.createElement("div");
+                    var x = document.createElement("iframe");
+                   // var x = document.createElement("IMG");
+                    x.setAttribute("src", "/Users/prathmesh/Downloads/Project_pics/"+data[bb].Name+".jpg");
+                    x.setAttribute("name",data[bb].youtubeLink);
+                    x.setAttribute("width","300");
+                    x.setAttribute("height","300");
+                    x.setAttribute("frameborder","0");
+                    d.setAttribute("class", "allvids");
+                   d.setAttribute("onmouseover","tests(this)");
+                    d.setAttribute("onmouseout","nmnm(this)");
+                    d.appendChild(x)
+                    $('#scicont').append(d);
+                }
+                else if (data[bb].Category=="Drama" && data[bb].M_OR_T=="M"){
+                    var d = document.createElement("div");
+                    var x = document.createElement("iframe");
+                   // var x = document.createElement("IMG");
+                    x.setAttribute("src", "/Users/prathmesh/Downloads/Project_pics/"+data[bb].Name+".jpg");
+                    x.setAttribute("name",data[bb].youtubeLink);
+                    x.setAttribute("width","300");
+                    x.setAttribute("height","300");
+                    x.setAttribute("frameborder","0");
+                    d.setAttribute("class", "allvids");
+                    d.appendChild(x)
+                    $('#dramcont').append(d);
+                }
+            }
+});
+
+var nowPlaying = "none";
+var nowsrc = "none";
+    alert("check");
+$(".allvids").mouseover(function(){
+    nowsrc = $(this).find('iframe').attr('src');
+    nowPlaying = $(this).find('iframe').attr('name');
+    //alert(nowPlaying);
+    $(this).css('transform','scale('+2.0+')');
+         $(this).find('iframe').attr('src',nowPlaying+'&autoplay=1');
+         $(this).find('iframe').attr('position','absolute');
+}).mouseout (function(){
+  $(this).find('iframe').attr('src',nowsrc);
+  $(this).css('transform','none');
+});
+
+
+// var nowPlaying = "none";
+// //var nowsrc = "none";
+// $(".allvids").on('click',function(){
+//     alert("df")
+    //nowsrc = $(this).find('iframe').attr('src');
+    // nowPlaying = $(this).find('iframe').attr('name');
+    // $('#mod_data').append($(this).find('iframe'));
+    //     //$(this).css('transform','scale('+2.0+')');
+    //      $('#mod_data').find('iframe').attr('src',nowPlaying+'&autoplay=1');
+    //      $('#mod_data').find('iframe').attr('position','absolute');
+    //      $("#myModal").modal();
+//});
+
+
+});
+// var nowPlaying = "none";
+// var nowsrc = "none";
+// function tests(_this){
+//     nowsrc = _this.firstChild.getAttribute("src");
+//     nowPlaying = _this.firstChild.getAttribute("name");
+//     //alert(nowPlaying);
+//     _this.style.transform = 'scale(1.5)';
+//          _this.firstChild.setAttribute('src',nowPlaying+'&autoplay=1');
+// }
+
+// function nmnm(_this){
+//     _this.firstChild.setAttribute('src',nowsrc);
+//     _this.style.transform = 'none';
+// }
+
+
+  </script>
+
+
+
+
+<h1 style="text-align: center; color: white">Action Movies</h1>
+<div id="Accont" class="gallery">
+  </div>
+<h1 style="text-align: center; color: white">Sci-Fi Movies</h1>
+<div id="scicont" class="gallery">
+</div>
+<h1 style="text-align: center; color: white">Drama Movies</h1>
+<div id="dramcont" class="gallery">
+</div>
+ </body>
+</html>

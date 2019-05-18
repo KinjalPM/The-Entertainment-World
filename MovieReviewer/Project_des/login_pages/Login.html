@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>SignIn </title>
+
+      <link rel="stylesheet" href="style.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="stylesheet" type="text/css" href="formReg.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function() {
+       $("#submitBtn").click(function(){
+        var ty = $('#emailId').val();
+        var passw = $('#password').val();
+      $.get("http://localhost:1234/movies/"+ty+"/find", function(data, status){
+        var tuu = data.split('@');
+        alert(tuu[0]);
+        alert(tuu[1]);
+    if(tuu[0]=="Success" && tuu[1]==passw){
+      location.href = '../Userhome/Userhome.html?myparam='+ty;
+    }
+  });
+     });
+      });
+     </script>
+
+  </head>
+  
+  <body>
+
+  <div id="container">
+   
+    <main>
+    <h2 style="text-shadow: 2.2px 1px rgb(51, 83, 2);word-spacing: 7px; letter-spacing: 1.5px;">USER SIGN IN</h2>
+  
+     <br><br>
+     <form name="Form" id="myform"  onsubmit="return emailValid()&&passValid();">
+
+      <input type="text" name="emailId" id="emailId" placeholder="Email Id" onchange="emailValid()">
+      <label1 id="commentEmailPrompt"></label1>
+      <br><br>
+
+      <input type="password" name="password" id="password" placeholder="Password" onchange="passValid()"/>
+      <label1 id="commentPassPrompt"></label1>
+      <br><br>  
+      
+        
+      <input id="submitBtn" type="button" value="LOGIN" class="log">
+      <label id="success"></label>
+      <!-- <input type="Reset" id="resetBtn"> style="background:rgb(79, 255, 147); font-weight: bold; opacity: 0.4;" -->
+      <br><br>
+     </form>
+   </main>
+ </div>
+
+ <script type="text/javascript" >
+ function emailValid(){
+     var email = document.getElementById("emailId").value;
+     if(email.length==0)
+     {
+         producePrompt("Email is required","commentEmailPrompt","red");
+         return false;
+     }
+     
+    producePrompt("" , "commentEmailPrompt", "beige");
+     return true;
+ }
+ 
+ function passValid(){
+     var pass = document.getElementById("password").value;
+     console.log("a");
+     if(pass.length==0)
+     {
+         producePrompt("Please enter a password ","commentPassPrompt","red");
+         return false;
+     }
+    
+    producePrompt("" , "commentPassPrompt", "beige");
+     return true;
+ }
+ function producePrompt(message, promptLocation, color){
+    document.getElementById(promptLocation).innerHTML = message;
+    document.getElementById(promptLocation).style.color = color;
+    if(color=='red'||!message=="")
+    document.getElementById("submitBtn").disabled=true;
+    else
+    document.getElementById("submitBtn").disabled=false;
+}
+ </script>
+ </body>
+</html>

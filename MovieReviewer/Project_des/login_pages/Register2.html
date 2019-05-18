@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+ <head>
+    <meta charset="UTF-8">
+  <title>SignUp </title>
+      <link rel="stylesheet" href="style.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="formReg.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ </head>
+ <body>
+ <div id="container">
+   
+   <main>
+    <h3 style="text-shadow: 2px 1px blue">CREATE A NEW ACCOUNT</h3>
+           Fill the form to Register :
+     <br><br>
+     <form method="POST" name="Form"  onsubmit="return emailValid()&&passValid() && firstValid()&&confirmPassValid()"
+      action="Login.html">
+      
+      <!-- <label for="Name">Name*:</label> -->
+      <input type="text" name="UserName" id="UserName" placeholder="User Name" onchange="firstValid()" /> 
+      <label1 id="commentUserNamePrompt"></label1>
+      <br>
+
+      <!-- <label for="EmailId">Email Id*:</label> -->
+      <input type="text" name="emailId" id="emailId" placeholder="Email_Id@domain.com" onchange="emailValid()">
+     <label1 id="commentEmailPrompt"></label1>
+     <label2 id="sameEmailPrompt" style="color:red">Email is already used !</label2>
+      <br>
+
+      <!-- <label for="password">Password*:</label> -->
+      <input type="password" name="password" id="password" placeholder="password" onchange="passValid()"/>
+      <label1 id="commentPassPrompt"></label1>
+      <br>
+
+      <!-- <label for="confirmPassword">Password*:</label> -->
+      <input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" onchange="confirmPassValid()" />
+      <label1 id="commentCPassPrompt"></label1>
+      <br>
+      <input type="Reset" id="resetBtn" value="Reset" onclick="reset();" style="color:darkred; background:none; border: 0cm; font-size: 0.5cm; text-align: right" >
+      <br>
+      <input id="submitBtn" type="submit" value="SUBMIT" onsubmit="results();" class="reg" >
+     </form>
+   </main>
+ </div>
+ <script type="text/javascript" >
+ 
+ function firstValid(){
+    var fname = document.getElementById("UserName").value;
+    if(fname.length==0)
+    {
+        producePrompt("Please enter a User Name ","commentUserNamePrompt","red");
+        return false;
+    }
+    if(!fname.match(/^[a-zA-Z]{3,16}$/))
+    {
+        producePrompt("Please enter a valid User name","commentUserNamePrompt","red");
+        return false;
+    }
+   producePrompt(" " , "commentUserNamePrompt", "green",);
+    return true;
+}
+function emailValid(){
+    document.getElementById("sameEmailPrompt").style.display = 'none';
+
+    var email = document.getElementById("emailId").value;
+    if(email.length==0)
+    {
+        producePrompt("Email is required","commentEmailPrompt","red");
+        return false;
+    }
+    if(!email.match(/[^@]+@[^@]+\.[a-zA-Z]{2,6}/))
+    // if(!emailValidator.validate(email))
+    {
+        producePrompt("Please enter correct Email ID","commentEmailPrompt","red");
+        return false;
+    }
+   producePrompt("" , "commentEmailPrompt", "beige");
+
+    return true;
+}
+
+function passValid(){
+    var pass = document.getElementById("password").value;
+    var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    //     The password string will start this way
+    // (?=.*[a-z])	The string must contain at least 1 lowercase alphabetical character
+    // (?=.*[A-Z])	The string must contain at least 1 uppercase alphabetical character
+    // (?=.*[0-9])	The string must contain at least 1 numeric character
+    // (?=.[!@#\$%\^&])	The string must contain at least one special character, but we are escaping reserved RegEx characters to avoid conflict
+    // (?=.{8,})	The string must be eight characters or longer
+    console.log("a");
+    if(pass.length==0)
+    {
+        producePrompt("Please enter a password ","commentPassPrompt","red");
+        return false;
+    }
+    if(!pass.match(strongRegex))
+    {console.log("wrong");
+        producePrompt("Please enter password with 1 Uppercase, 1 SpecialCharacter, 1 digit with min 8 characters long","commentPassPrompt","red");
+        return false;
+    }
+   producePrompt("" , "commentPassPrompt", "beige");
+    return true;
+}
+
+function confirmPassValid(){
+    var cpass = document.getElementById("confirmPassword").value;
+    var pass = document.getElementById("password").value;
+
+    if(cpass.length==0)
+    {
+        producePrompt("Please enter confirm password","commentCPassPrompt","red");
+        return false;
+    }
+    if(!cpass.match(pass))
+    {
+        producePrompt("Please enter same password","commentCPassPrompt","red");
+        return false;
+    }
+    producePrompt("" , "commentCPassPrompt", "beige");
+    return true;
+}
+
+
+function producePrompt(message, promptLocation, color){
+    document.getElementById(promptLocation).innerHTML = message;
+    document.getElementById(promptLocation).style.color = color;
+    if(color=='red'||!message=="")
+    document.getElementById("submitBtn").disabled=true;
+    else
+    document.getElementById("submitBtn").disabled=false;
+
+}
+function reset(){
+    producePrompt(" " , "commentUserNamePrompt", "beige");
+    producePrompt(" " , "commentEmailPrompt", "beige");
+    producePrompt(" " , "commentPassPrompt", "beige");
+    producePrompt(" " , "commentCPassPrompt", "beige");
+    console.log("reset is being called")
+    return true;
+}
+
+function results(){
+    producePrompt("Successfully signed Up!","success","green");
+
+//   var fm = document.getElementById("UserName").value;
+//   var email = document.getElementById('emailId').value;
+//   var password = document.getElementById("password").value;
+//   var confirmPass =  document.getElementById('confirmPassword').value;
+ document.getElementById("submitBtn").disabled=true;
+  
+} 
+</script>
+
+ </body>
+</html>
