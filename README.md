@@ -1,5 +1,5 @@
 # The-Entertainment-World
-#Steps to build the application:
+# Steps to build the application:
 
 1.	Run the cover.html in cover folder.
 2.  Click on button and you will reach to home.html page
@@ -18,7 +18,7 @@
 13.	In case of any enquiry about job opportunities at our company, user can fill an enquiry form. Then they will get a confirmation email from us. 
 14.	In case of any support needed, users can chat with our chatbot. 
 
-#Tools required:
+# Tools required:
 Node.js, 
 Mongodb, 
 Nodemailer.
