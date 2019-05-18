@@ -13,7 +13,7 @@
 8.	Users can browse movies and tv shows through browse section.
 9.	Users can search movies in the search bar and view their information and trailers. 
 10.	Users can also comment their reviews on the movies they want.
-11. 	Users can see latest news regarding awards of films and tv by going to dropdown menu from Browser.  
+11. Users can see latest news regarding awards of films and tv by going to dropdown menu from Browser.  
 12.	Users can go to recent Review page from footer to view top movies, highest rated and trending movies. 
 13.	In case of any enquiry about job opportunities at our company, user can fill an enquiry form. Then they will get a confirmation email from us. 
 14.	In case of any support needed, users can chat with our chatbot. 
